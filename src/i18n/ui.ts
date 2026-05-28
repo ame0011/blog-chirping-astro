@@ -210,7 +210,7 @@ export const messages = {
     'nav.tags': 'タグ',
     'nav.categories': 'カテゴリ',
     'nav.archives': 'すべての記事',
-    'nav.about': 'このサイトについて',
+    'nav.about': 'About',
     'nav.search': '検索',
     'nav.toggleMenu': 'Toggle menu',
 
@@ -230,10 +230,10 @@ export const messages = {
     'post.toc': 'Table of contents',
     'post.tags': 'タグ',
     'post.categories': 'カテゴリ',
-    'post.previous': 'Previous',
-    'post.next': 'Next',
-    'post.comments': 'Comments',
-    'post.commentsDisabled': 'Comments are disabled for this post.',
+    'post.previous': '前',
+    'post.next': '次',
+    'post.comments': 'コメント',
+    'post.commentsDisabled': 'この記事へのコメントは無効になっています。',
     'post.commentsSetupTitle': 'Comments need configuration',
     'post.commentsSetupBody':
       'Giscus is enabled but not yet configured. Add the repository details below to start collecting comments.',
