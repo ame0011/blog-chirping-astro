@@ -258,8 +258,8 @@ export const messages = {
     'list.totalPosts': 'posts',
     'list.totalPostsOne': 'post',
 
-    'pagination.previous': 'Previous page',
-    'pagination.next': 'Next page',
+    'pagination.previous': '前のページ',
+    'pagination.next': '次のページ',
     'pagination.page': 'Page',
     'pagination.of': 'of',
 
