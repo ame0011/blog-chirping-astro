@@ -184,5 +184,7 @@ export function htmlLang(locale: Locale): string {
     case 'en':
     default:
       return 'en-US';
+    case 'ja':
+      return 'ja-JP';
   }
 }

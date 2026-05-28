@@ -26,6 +26,7 @@ export const messages = {
     'lang.switcher': 'Language',
     'lang.en': 'English',
     'lang.fr': 'French',
+    'lang.ja': '日本語',
 
     'post.publishedOn': 'Published on',
     'post.updatedOn': 'Updated on',
@@ -123,6 +124,7 @@ export const messages = {
     'lang.switcher': 'Langue',
     'lang.en': 'Anglais',
     'lang.fr': 'Français',
+    'lang.ja': '日本語',
 
     'post.publishedOn': 'Publié le',
     'post.updatedOn': 'Mis à jour le',
@@ -199,6 +201,104 @@ export const messages = {
     'footer.theme': 'Thème',
     'footer.privacy': 'Politique de confidentialité',
     'footer.copyright': 'Tous droits réservés.',
+  },
+
+  ja: {
+    'site.skipToContent': 'Skip to content',
+    'nav.home': 'Home',
+    'nav.posts': '記事',
+    'nav.tags': 'タグ',
+    'nav.categories': 'カテゴリ',
+    'nav.archives': 'すべての記事',
+    'nav.about': 'このサイトについて',
+    'nav.search': '検索',
+    'nav.toggleMenu': 'Toggle menu',
+
+    'theme.toggle': 'テーマの切り替え',
+    'theme.light': 'ライト',
+    'theme.dark': 'ダーク',
+    'theme.system': 'System',
+
+    'lang.switcher': 'Language',
+    'lang.en': 'English',
+    'lang.fr': 'French',
+    'lang.ja': '日本語',
+
+    'post.publishedOn': 'Published on',
+    'post.updatedOn': '更新日時',
+    'post.readingTime': '分で読めると推定',
+    'post.toc': 'Table of contents',
+    'post.tags': 'タグ',
+    'post.categories': 'カテゴリ',
+    'post.previous': 'Previous',
+    'post.next': 'Next',
+    'post.comments': 'Comments',
+    'post.commentsDisabled': 'Comments are disabled for this post.',
+    'post.commentsSetupTitle': 'Comments need configuration',
+    'post.commentsSetupBody':
+      'Giscus is enabled but not yet configured. Add the repository details below to start collecting comments.',
+    'post.commentsSetupStep1':
+      'Visit `giscus.app` and select your public GitHub repository (Discussions must be enabled).',
+    'post.commentsSetupStep2':
+      'Copy the generated `data-repo-id`, `data-category` and `data-category-id` values.',
+    'post.commentsSetupStep3':
+      'Set the `PUBLIC_GISCUS_ENABLED`, `PUBLIC_GISCUS_REPO`, `PUBLIC_GISCUS_REPO_ID`, `PUBLIC_GISCUS_CATEGORY` and `PUBLIC_GISCUS_CATEGORY_ID` env vars in your `.env` file.',
+    'post.commentsSetupStep4':
+      'Rebuild the site — this notice will be replaced by the live comments thread.',
+    'post.commentsSetupDocs': 'Open giscus.app',
+    'post.share': 'Share',
+    'post.copyLink': 'Copy link',
+    'post.copied': 'Copied!',
+    'post.author': 'Author',
+
+    'list.allPosts': 'All posts',
+    'list.empty': 'No posts found.',
+    'list.tagPosts': 'Posts tagged',
+    'list.categoryPosts': 'Posts in',
+    'list.totalPosts': 'posts',
+    'list.totalPostsOne': 'post',
+
+    'pagination.previous': 'Previous page',
+    'pagination.next': 'Next page',
+    'pagination.page': 'Page',
+    'pagination.of': 'of',
+
+    'archives.title': 'すべての記事',
+    'archives.empty': 'No posts yet.',
+
+    'tags.title': 'タグ',
+    'tags.empty': 'No tags yet.',
+
+    'categories.title': 'カテゴリ',
+    'categories.empty': 'No categories yet.',
+
+    'search.title': '検索',
+    'search.placeholder': 'サイトを検索する',
+    'search.openLabel': 'Open search',
+    'search.closeLabel': '検索を閉じる',
+    'search.empty': 'No results.',
+    'search.loading': 'Loading search…',
+    'search.typeToStart': 'Type to search…',
+    'search.hintShortcut': 'Press / anywhere to open search',
+    'search.searching': 'Searching…',
+    'search.noResultsFor': 'No results for',
+    'search.resultsCount': 'results',
+    'search.resultsCountOne': 'result',
+    'search.hintNavigate': 'to navigate',
+    'search.hintSelect': 'で開く',
+    'search.clearLabel': 'Clear',
+
+    'code.copy': 'Copy',
+    'code.copied': 'Copied',
+
+    '404.title': 'ページが見つかりませんでした',
+    '404.description': 'The page you are looking for has flown away.',
+    '404.cta': 'Homeに戻る',
+
+    'footer.poweredBy': 'Powered by',
+    'footer.theme': 'Theme',
+    'footer.privacy': 'Privacy Policy',
+    'footer.copyright': 'All rights reserved.',
   },
 } as const satisfies Record<Locale, Record<string, string>>;
 
