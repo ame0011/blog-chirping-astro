@@ -267,10 +267,10 @@ export const messages = {
     'archives.empty': 'No posts yet.',
 
     'tags.title': 'タグ',
-    'tags.empty': 'No tags yet.',
+    'tags.empty': 'まだタグがないです。',
 
     'categories.title': 'カテゴリ',
-    'categories.empty': 'No categories yet.',
+    'categories.empty': 'まだカテゴリがないです。',
 
     'search.title': '検索',
     'search.placeholder': 'サイトを検索する',
@@ -278,13 +278,13 @@ export const messages = {
     'search.closeLabel': '検索を閉じる',
     'search.empty': 'No results.',
     'search.loading': 'Loading search…',
-    'search.typeToStart': 'Type to search…',
+    'search.typeToStart': '検索ワードを入力してください',
     'search.hintShortcut': 'Press / anywhere to open search',
     'search.searching': 'Searching…',
     'search.noResultsFor': 'No results for',
     'search.resultsCount': 'results',
     'search.resultsCountOne': 'result',
-    'search.hintNavigate': 'to navigate',
+    'search.hintNavigate': 'で移動',
     'search.hintSelect': 'で開く',
     'search.clearLabel': 'Clear',
 
