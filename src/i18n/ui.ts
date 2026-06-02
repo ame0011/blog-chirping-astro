@@ -264,7 +264,7 @@ export const messages = {
     'pagination.of': 'of',
 
     'archives.title': 'すべての記事',
-    'archives.empty': 'No posts yet.',
+    'archives.empty': 'まだ記事がないです。',
 
     'tags.title': 'タグ',
     'tags.empty': 'まだタグがないです。',
