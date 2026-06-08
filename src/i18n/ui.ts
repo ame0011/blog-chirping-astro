@@ -227,7 +227,7 @@ export const messages = {
     'post.publishedOn': 'Published on',
     'post.updatedOn': '更新日時',
     'post.readingTime': '分で読めると推定',
-    'post.toc': 'Table of contents',
+    'post.toc': '目次',
     'post.tags': 'タグ',
     'post.categories': 'カテゴリ',
     'post.previous': '前',
