@@ -59,7 +59,7 @@ export const SITE: SiteConfig = {
     name: 'あめ',
     url: GITHUB_HANDLE ? `https://github.com/${GITHUB_HANDLE}` : undefined,
     avatar: avatarImg,
-    bio: 'A text-focused Astro V6 theme.',
+    bio: '王の帰還',
   },
   /** Default OG image. */
   defaultOgImage: ogDefaultImg.src,
