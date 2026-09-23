@@ -1,22 +1,22 @@
 // @ts-check
-import { defineConfig, fontProviders, svgoOptimizer } from 'astro/config';
-import process from 'node:process';
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
-import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { satteri, satteriHeadingIdsPlugin } from '@astrojs/markdown-satteri';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import icon from 'astro-icon';
-import expressiveCode from 'astro-expressive-code';
 import tailwindcss from '@tailwindcss/vite';
-import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeExternalLinks from 'rehype-external-links';
-import rehypeKatex from 'rehype-katex';
-import remarkGfm from 'remark-gfm';
-import remarkMath from 'remark-math';
-import { remarkAsHtml } from './src/plugins/remark-ashtml.ts';
-import { remarkAlert } from './src/plugins/remark-alert.ts';
+import expressiveCode from 'astro-expressive-code';
+import icon from 'astro-icon';
+import { defineConfig, fontProviders, svgoOptimizer } from 'astro/config';
+import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+import process from 'node:process';
+import { fileURLToPath } from 'node:url';
+import satteriExternalLinks from 'satteri-external-links';
+import { katex } from '@nullpinter/satteri-katex';
+import { satteriAlert } from './src/plugins/satteri-alert';
+import { satteriAsHTML } from './src/plugins/satteri-ashtml';
+import { satteriBaseLinks } from './src/plugins/satteri-base-links';
+import { satteriAutolinkHeadings } from './src/plugins/satteri-autolink-headings.ts';
+import { satteriMermaid } from './src/plugins/satteri-mermaid.ts';
 import remarkBreaks from 'remark-breaks';
 
 import { SITE } from './src/config';
@@ -130,6 +130,7 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
+  prefetch: true,
 
   // Image optimization (https://docs.astro.build/en/guides/images/).
   //
@@ -179,30 +180,19 @@ export default defineConfig({
     // loaded ONLY on pages that opt in via `math: true` in frontmatter,
     // through `<MathStyles />` in the post / page layouts. This keeps the
     // CSS (~25kB gzipped) off pages that don't need it.
-    remarkPlugins: [remarkAlert, remarkAsHtml, remarkGfm, remarkMath, remarkBreaks],
-    rehypePlugins: [
-      rehypeKatex,
-      rehypeSlug,
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: 'wrap',
-          properties: {
-            className: ['heading-anchor'],
-            ariaHidden: 'true',
-            tabIndex: -1,
-          },
-        },
-      ],
-      [
-        rehypeExternalLinks,
-        {
+    processor: satteri({
+      features: { math: true },
+      mdastPlugins: [satteriAlert(), satteriAsHTML(), katex(), satteriMermaid()],
+      hastPlugins: [
+        satteriHeadingIdsPlugin(),
+        satteriAutolinkHeadings(),
+        satteriExternalLinks({
           target: '_blank',
-          rel: ['nofollow', 'noopener', 'noreferrer'],
-        },
+          rel: ['nofollow', 'noopener', 'noreferrer']
+        }),
+        satteriBaseLinks({ base: BASE }),
       ],
-    ],
-    gfm: true,
+    }),
   },
 
   integrations: [
@@ -276,7 +266,7 @@ export default defineConfig({
 
   experimental: {
     contentIntellisense: true,
-    // Astro 6.2.x still exposes SVG optimization as an experimental flag.
+    // Astro 7.x still exposes SVG optimization as an experimental flag.
     // The 6.2 change renamed the old `experimental.svgo` flag to the new
     // `experimental.svgOptimizer` API; it is not a stable top-level config yet.
     svgOptimizer: svgoOptimizer({

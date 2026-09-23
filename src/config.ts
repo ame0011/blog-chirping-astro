@@ -1,7 +1,7 @@
 import process from 'node:process';
 import avatarImg from '/images/jxl/profile-icon.jxl';
 import ogDefaultImg from './assets/images/site/og-default.svg';
-import type { SiteConfig, NavItem, SocialLink, GiscusConfig } from './types/config';
+import type { GiscusConfig, NavItem, SiteConfig, SocialLink } from './types/config';
 
 /**
  * Global site + theme configuration.
@@ -53,7 +53,7 @@ export const SITE: SiteConfig = {
   title: 'あめ',
   /** Site tagline / description. */
   description:
-    'A modern, multilingual Astro v6 theme inspired by Chirpy — built with Tailwind v4, daisyUI, MDX, Pagefind, and Giscus.',
+    'A modern, multilingual Astro v7 theme inspired by Chirpy — built with Tailwind v4, daisyUI, MDX, Pagefind, and Giscus.',
   /** Author/handle shown in footer + meta. */
   author: {
     name: 'あめ',
