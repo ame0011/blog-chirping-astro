@@ -32,8 +32,8 @@
     "astro": "^7.0.5",
     "astro-expressive-code": "^0.44.0",
     "astro-icon": "^1.1.5",
-    "remark-breaks": "^4.0.0",
     "mermaid": "^11.16.0",
+    "satteri-breaks": "^0.1.0",
     "satteri-external-links": "^0.1.0"
   },
   "devDependencies": {

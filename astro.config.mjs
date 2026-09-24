@@ -17,7 +17,7 @@ import { satteriAsHTML } from './src/plugins/satteri-ashtml';
 import { satteriBaseLinks } from './src/plugins/satteri-base-links';
 import { satteriAutolinkHeadings } from './src/plugins/satteri-autolink-headings.ts';
 import { satteriMermaid } from './src/plugins/satteri-mermaid.ts';
-import remarkBreaks from 'remark-breaks';
+import { satteriBreaks } from "satteri-breaks";
 
 import { SITE } from './src/config';
 
@@ -182,7 +182,7 @@ export default defineConfig({
     // CSS (~25kB gzipped) off pages that don't need it.
     processor: satteri({
       features: { math: true },
-      mdastPlugins: [satteriAlert(), satteriAsHTML(), katex(), satteriMermaid()],
+      mdastPlugins: [satteriBreaks(), satteriAlert(), satteriAsHTML(), katex(), satteriMermaid()],
       hastPlugins: [
         satteriHeadingIdsPlugin(),
         satteriAutolinkHeadings(),
