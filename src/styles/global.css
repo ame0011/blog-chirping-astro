@@ -134,9 +134,10 @@
   /* Reading column max width on post pages */
   --width-prose: 50rem;
 
-  /* Fonts — configured via Astro Fonts API (astro.config.mjs) */
-  --font-sans: var(--font-source-sans-3, system-ui, sans-serif);
-  --font-mono: var(--font-jetbrains-mono, ui-monospace, monospace);
+  /* 独自部分
+  Fonts — browser defaults (system fonts) */
+  --font-sans: sans-serif;
+  --font-mono: monospace;
 }
 
 [data-theme='chirpy-dark'] {
