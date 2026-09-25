@@ -575,6 +575,25 @@
   .prose-chirpy div[role='alert'] + div[role='alert'] {
     @apply mt-4;
   }
+
+  /* 独自追加
+     外部リンクにアイコンを表示する。
+     [Astro外部リンクへのアイコン追加方法 - Google Gemini](https://gemini.google.com/app/7fb6b551f87bc322) */
+  .prose-chirpy a[target="_blank"]::after {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-left: 0.1em;
+    vertical-align: sub;
+    --svg: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M14 3v2h3.59l-9.83 9.83l1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"/></svg>');
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 }
 
 /* ---------- Expressive Code -----------------------------
