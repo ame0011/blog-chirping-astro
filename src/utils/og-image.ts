@@ -29,6 +29,9 @@ const HEIGHT = 630;
 const fontsDir = join(process.cwd(), 'node_modules/@fontsource/inter/files');
 const fontRegular = readFileSync(join(fontsDir, 'inter-latin-400-normal.woff'));
 const fontBold = readFileSync(join(fontsDir, 'inter-latin-700-normal.woff'));
+const jpFontsDir = join(process.cwd(), 'node_modules/@fontsource/noto-sans-jp/files');
+const jpRegular = readFileSync(join(jpFontsDir, 'noto-sans-jp-japanese-400-normal.woff'));
+const jpBold = readFileSync(join(jpFontsDir, 'noto-sans-jp-japanese-700-normal.woff'));
 
 /**
  * Generate a themed OG image as a PNG buffer.
@@ -259,6 +262,8 @@ export async function generateOgImage(data: OgImageData): Promise<Buffer> {
     fonts: [
       { name: 'Inter', data: fontRegular, weight: 400, style: 'normal' },
       { name: 'Inter', data: fontBold, weight: 700, style: 'normal' },
+      { name: 'Noto Sans JP', data: jpRegular, weight: 400, style: 'normal' },
+      { name: 'Noto Sans JP', data: jpBold, weight: 700, style: 'normal' },
     ],
   });
 
