@@ -1,0 +1,110 @@
+---
+title: Piko改造版のXアプリをNewXにアップデートしようとしたが…
+description: 妙な罠にハマって無駄に時間を使ってしまったが、これらの点を事前に気づいておけば簡単だっただろう
+pubDate: 2026-09-25
+tags:
+  - テクノロジー
+  - Android
+---
+
+import Image from '~/components/SmartImage.astro';
+import img1 from '../../../assets/images/NewX-1.jpg';
+import img2 from '../../../assets/images/NewX-2.jpg';
+import img3 from '../../../assets/images/NewX-3.jpg';
+
+```alert
+type: info
+style: soft
+icon: lucide:bot
+title: AIによる要約
+description: Xアプリの改造パッチ「Piko」をNewX用に移行しようとしたが、パッチ誤選択・署名不一致・ログイン画面への到達不能で詰みかけた。実害はバージョンコードの非上書き不可であり、旧パッチからバージョンコード改変部分だけ抽出してAPKを作り、ようやく上書きインストールに成功した。最後にMusk氏のオープンソース宣言への不信感をつぶやいている。
+class: ai-summarize shadow-md
+```
+
+## Piko改造版のXとは
+
+<small>AIに書けと言われたのでしゃーなし書きます…</small>
+
+Xアプリの広告やおすすめ機能など余計なものを一掃して快適に使えるようにしたもの。
+Androidでのみ使える。
+
+[Morphe](https://morphe.software/) という、アプリにパッチを当てられるアプリがある
+それに「Piko」というパッチを追加する
+PikoとはXアプリ用のパッチでさっき言ったように広告やら除去してくれるもの、パッチの種類ごとに対応するアプリがある
+後はMorpheを使ってXにパッチを当ててインストールすればよい。
+
+## Piko XからPiko NewXにアップデートしようとしたが…
+
+最近Xアプリがリニューアルしましたよね
+新しいやつは「NewX」と呼ばれている
+
+それに合わせて改造パッチのPikoもNewX用に新しく出たのでそっちに移行しなきゃいけない
+https://github.com/crimera/piko-newx
+からパッチを追加してAPKMirrorからAPKをダウンロードしてパッチしてアップデートするだけ
+そう思っていた
+
+```alert
+type: warning
+style: soft
+direction: responsive
+icon: lucide:info
+title: APKPureには日本語データがないかも？
+description: APKPureからダウンロードしたAPKファイルを使ってしまうと日本語が入っていなくて英語になってしまうらしい。ソースは5ch。
+```
+
+### つまづきポイント1、パッチの選び間違え
+
+NewXに対して従来のPikoのパッチを適応しようとしてしまっていて何度もエラーで失敗した
+自分のMorpheには「今までのPiko」と「NewX用の新しいPiko」が入っていて、名前がどっちもPikoだからわかりづらいのだ
+
+### つまづきポイント2、バージョンコード
+
+パッチ成功してインストールしようとしたら「署名が違うから1回アンインストールして」というメッセージ
+従ってXアプリを起動してPiko設定とトークンをエクスポートしてからアンインストール→インストールしたが、ログイン画面でつまづく
+当然そのままでは改造を検知されてログインできないので、なんらかの方法でPikoの設定画面に飛んでトークンをインポートしてくる必要があるのだが…
+
+1. 方法Aのディープリンク: 無視されて普通にログイン画面が開くだけで失敗
+2. 方法Bのショートカットを使う: Piko設定というショートカットが出ず失敗
+3. 方法Cの検索画面からの古いログイン画面を使う: ショートカットから検索をタップしても普通にログイン画面が出るだけで失敗
+
+参照: [piko/docs/about_login_token_patch.md at dev · crimera/piko](https://github.com/crimera/piko/blob/dev/docs/about_login_token_patch.md)
+
+とすべての方法が失敗してしまい詰み
+
+どうも、NewXでログイン画面をすっ飛ばしてPikoの設定画面に飛ぶ方法がまだ開発されていないようだ[^1]
+[^1]: https://github.com/crimera/piko-newx/issues/57
+
+つまり現状では「Pikoのパッチを適用したNewX」を使うには、
+古い方のPiko Xでログインしておいてその状態でアップデートするしかない
+というわけでまた旧バージョンに戻ることに。
+
+そして旧バージョンからすんなりトークンをインポートしてログイン成功し、アップデートしようとするも失敗
+また署名が違うとか言われる
+ここでようやく、それが嘘であり実際にはバージョンコードが異なっていることがアップデートを妨げているということに気づく。
+
+```alert
+type: info
+style: outline
+direction: responsive
+icon: lucide:info
+description: Androidアプリにはバージョンコードという数値が存在する。この数字が今インストールしているものと同じかより大きいApkしか(上書き)インストールできない。バージョンコードがより小さいものをインストールするには一旦既にインストールしているものをアンインストールする必要があるが、その際にアプリのデータ(ログイン状態等)は失われることになる。
+```
+
+NewX用のPikoパッチには何故かまだバージョンコードを改変するパッチが含まれていなかった
+なので古いPikoパッチの中からバージョンコード改変パッチだけを追加してパッチしてみた
+無事成功し、バージョンコードが`2147483647`なAPKを作ることができた
+
+これでアップデートとして上書きインストールすることができた
+無駄に長かった。
+
+### 感想は？
+
+<div class="grid gap-2 grid-cols-2 sm:grid-cols-3">
+  <Image src={img1} alt="Piko適用したNewXのタイムラインタブ" widths={[1272]} />
+  <Image src={img2} alt="Piko適用したNewXの通知タブ" widths={[1272]} />
+  <Image src={img3} alt="Piko適用したNewXのPikoの設定画面" widths={[1272]} />
+</div>
+
+今ってこんなデザインになってたんだな
+というかオープンソースにするって言ってたよな
+イーロン・マスクまた嘘ついちゃったのか、サム・アルトマン並みに胡散臭いなこいつ。

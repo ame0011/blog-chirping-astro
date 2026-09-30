@@ -181,7 +181,9 @@ export default defineConfig({
     // through `<MathStyles />` in the post / page layouts. This keeps the
     // CSS (~25kB gzipped) off pages that don't need it.
     processor: satteri({
-      features: { math: true },
+      // `rawHtml: true` lets MDX re-parse inline raw HTML (e.g. `<small>`)
+      // into real JSX elements instead of failing with "Cannot compile a `raw` node".
+      features: { math: true, rawHtml: true },
       mdastPlugins: [satteriBreaks(), satteriAlert(), satteriAsHTML(), katex(), satteriMermaid()],
       hastPlugins: [
         satteriHeadingIdsPlugin(),
