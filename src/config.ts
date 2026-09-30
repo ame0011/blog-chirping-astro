@@ -53,7 +53,7 @@ export const SITE: SiteConfig = {
   title: 'あめ',
   /** Site tagline / description. */
   description:
-    'A modern, multilingual Astro v7 theme inspired by Chirpy — built with Tailwind v4, daisyUI, MDX, Pagefind, and Giscus.',
+    'あめちゃんのブログだよ',
   /** Author/handle shown in footer + meta. */
   author: {
     name: 'あめ',
