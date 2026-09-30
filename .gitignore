@@ -38,3 +38,6 @@ pagefind/
 
 # misc
 *.log
+
+# Graphify
+graphify-out/
