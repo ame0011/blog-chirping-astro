@@ -1,0 +1,41 @@
+---
+title: 'RadeonにてDDUを使用していてドライバーが不調の場合の解決方法'
+description: 'DDUがRadeonの不調の原因になりうる話'
+tags: 
+  - knowledge
+  - Radeon
+  - PC
+  - Windows
+  - テクノロジー
+pubDate: 2026-05-30
+updatedDate: 2026-02-18
+---
+
+*DDU*は*PCI Expressデバイス*をアンインストールしてしまうため、ストリームスイッチポートとの通信にエラーが生じる可能性がある。
+DDUを使用したことがあり、Radeonのドライバーが不安定ならこれが原因になっているかもしれない。
+
+## 影響を受けているか確認する方法
+
+1. デバイスマネージャーを開く
+2. 「システムデバイス」を開く
+3. 「AMD PCI Express Downstream Switch Port」および「AMD PCI Express Upstream Switch Port」を確認する
+4. イベントタブを開く
+5. **「デバイスが開始されていません」という記載があるならばこの問題が生じていることになる**
+
+## 修正方法
+
+```alert
+type: warning
+style: soft
+direction: responsive
+description: 予期せぬ事態を防ぐため他のプログラムは終了しておいてください。
+```
+
+**_AMD PCI Express Downstream Switch Port_** か **_AMD PCI Express Upstream Switch Port_** のどちらかのコンテキストメニューを開き、「アンインストール」を実行する
+
+画面が数度ほど暗転した後、両デバイスが自動的に再インストールされる。
+イベントタブを再度確認すると「デバイスが開始されました」で終わるようになっているはずだ。
+
+## 関連リンク
+
+- https://www.youtube.com/watch?v=S7OD1oezvpo&lc=Ugz4ZYLzW852db4Aa6t4AaABAg
