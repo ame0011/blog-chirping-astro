@@ -29,11 +29,7 @@ const resolvedLeftText = footerLeftText
         resolvedLeftText
       ) : (
         <>
-          © <time>{year}</time>{' '}
-          <a href={SITE.author.url ?? '#'} rel="noopener" class="hover:text-primary">
-            {SITE.author.name}
-          </a>
-          . {t('footer.copyright')}
+          {/* Footerの左側のテキスト */}
         </>
       )
     }
