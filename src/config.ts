@@ -50,7 +50,7 @@ export const SITE: SiteConfig = {
   // ==========================================
 
   /** Default site title used as homepage <title> and meta. */
-  title: 'あめ',
+  title: 'あめブログ',
   /** Site tagline / description. */
   description:
     'あめちゃんのブログだよ',
