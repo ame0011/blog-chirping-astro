@@ -12,7 +12,7 @@ updatedDate: 2026-06-09
 ### JPEG XL
 
 当サイトでは[JPEG XL画像](https://jpegxl.info/)を使用しています。
-Safariでは既に対応していますが、他の環境では有効化が必要です。
+Chrome 155以降・Safariでは対応していますが、他の環境では有効化が必要です。
 
 #### Chromeでの有効化方法
 
