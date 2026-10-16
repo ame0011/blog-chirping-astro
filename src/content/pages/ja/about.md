@@ -12,27 +12,7 @@ updatedDate: 2026-06-09
 ### JPEG XL
 
 当サイトでは[JPEG XL画像](https://jpegxl.info/)を使用しています。
-Chrome 155以降・Safariでは対応していますが、他の環境では有効化が必要です。
-
-#### Chromeでの有効化方法
-
-1. `chrome://flags`にアクセスします
-2. 「JPEG」などと検索に入力します
-3. **Enable JXL image format** という項目が出るので、`Default`から`Enabled`に変えます
-4. ブラウザを再起動して完了🎉
-
-PCでもAndroidでも同様です。
-
-#### Firefoxでの有効化方法
-
-Android版は非対応のようです。
-https://caniuse.com/?search=image%2Fjxl
-
-1. `about:config` にアクセスします
-2. `image.jxl.enabled` を検索し `true` に変更します
-3. ブラウザを再起動して完了🎉
-
-JPEG XLに最初から対応しているおすすめのブラウザは[「おすすめソフトウェア」の記事を見てね]()
+Firefox・Chrome 155以降・Safariでは対応していますが、他の環境や古いブラウザでは表示されないかもしれません。
 
 ### コメント
 
@@ -174,13 +154,13 @@ GTA5は`1280x720`の最低設定でたったの15FPSくらいしか出ない。
 
 [^1]: https://x.com/ame_youjo/status/1972666418098561516
 
-[Xiaomi Mi Note 10 ベストフォト集](/posts/bestpictures-in-minote10/)
+[Xiaomi Mi Note 10 ベストフォト集](/posts/bestpictures-in-minote10/)にはこのスマホで撮った写真がたくさんあります📷️
 
 #### Xiaomi Redmi 4X
 
 2020年4月にMi Note 10が届くまで頑張ってもらっていた。
 
-[南埼玉病院の入院食まとめ](/posts/南埼玉病院の食事/)にはこのスマホで撮った料理の写真がたくさんあります。
+[南埼玉病院の入院食まとめ](/posts/南埼玉病院の食事/)にはこのスマホで撮った料理の写真がたくさんあります📷️
 
 #### 3DS
 
