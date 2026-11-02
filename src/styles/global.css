@@ -442,6 +442,7 @@
     @apply text-base-content;
     line-height: 1.75;
     font-size: 1.0625rem;
+    overflow-wrap: anywhere;
   }
 
   .prose-chirpy h1,
